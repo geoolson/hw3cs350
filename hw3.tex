@@ -12,35 +12,64 @@
 \begin{document}
 \maketitle
 \textbf{Problem 1: Power Algorithm}
+\newline
+\textbf{(a)}
 \begin{lstlisting}
-(a)
 def twoN(n):
     if n == 0:
         return 1
     else:
         return twoN(n - 1) + twoN(n - 1)
 \end{lstlisting}
-(b)
-
+\textbf{(b)}
+\newline
+\textbf{(c)}
+No, the complexity is $O(2^n)$. This can be done in linear time iterating through n in a loop storing the previous value like so:
 \begin{lstlisting}
-(c)
 def twoNlinear(n):
     product = 1
     for i in range(n):
         product *= 2
     return product
 \end{lstlisting}
-
+\textbf{Problem 2: Maze Solving}
+\newline
+\textbf{(a)}
 \begin{lstlisting}
-Problem 2: Maze Solving
-(a)
-(c)
-def backtrace(parent, start, end):
+def backtraceCount(parent, s, end):
+    count = 1
+    path = end
+    while path != s:
+        count += 1
+        path = parent[path]
+    return count
+
+def BFS(s, maze):
+    parent = {}
+    visited = dict()
+    dim = maze x and y dimensions
+    queue = []
+    queue.append(s)
+    visited[s] = True
+    while queue:
+        s = queue.pop(0)
+        if s[0] == dim[0]-1 and s[1] == dim[1]-1:
+            return backtraceCount(parent, (0,0), (8,8))
+        for i in self.graph[s]:
+            if not i in visited:
+                parent[i] = s
+                queue.append(i)
+                visited[i] = True
+\end{lstlisting}
+\textbf{(b)}
+\newline
+\textbf{(c)}
+\begin{lstlisting}
+def backtrace(s, end):
     path = [end]
-    while path[-1] != start:
+    while path[-1] != s:
         path.append(parent[path[-1]])
     path.reverse()
-    print(path)
     return path
 
 def BFS(s, maze):
