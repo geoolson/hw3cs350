@@ -23,6 +23,15 @@ def twoN(n):
 \end{lstlisting}
 \textbf{(b)}
 \newline
+$T(0) = 1$\newline
+$T(n) = 2T(n-1) + 1$
+\newline
+$T(n) = 2(2t(n-2)+1)+1 = 4T(n-2)+3$\newline
+$T(n) = 2(2(2t(n-3)+1)+1)+1 = 8T(n-3)+7$\newline
+$T(k) = 2^kT(n-k)+2^k-1$\newline
+$let k = n$\newline
+$T(n) = 2^{n}T(n-n)+2^n-1$\newline
+$T(n) = 2^n+2^n-1\in O(2^n)$\newline\newline
 \textbf{(c)}
 No, the complexity is $O(2^n)$. This can be done in linear time iterating through n in a loop storing the previous value like so:
 \begin{lstlisting}
